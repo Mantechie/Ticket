@@ -14,7 +14,7 @@ const Page: React.FC = () => (
       <div className='container'>
         <div className='center'>
           <Heading type={1} color='gray' text='Discover' />
-          <p className='gray'>Discover, search and filter best events in London.</p>
+          <p className='gray'>Discover, search and filter best events in India.</p>
         </div>
       </div>
 
