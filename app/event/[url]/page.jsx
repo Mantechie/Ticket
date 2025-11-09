@@ -1,8 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Link from 'next/link';
 
-import { Metadata } from 'next';
-
 // components
 import Master from '@components/Layout/Master';
 import Section from '@components/Section/Section';

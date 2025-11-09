@@ -1,7 +1,9 @@
+'use client';
+
 import { useState } from 'react';
 
 // hooks
-import useAlert from '@hooks/useAlert';
+import useAlert from 'react';
 
 // components
 import Input from '@components/Form/Input';
@@ -13,33 +15,14 @@ const FormSearch = () => {
     keyword: '',
   });
 
-  /**
-   * Handles the change event for form inputs.
-   *
-   * @param e - The event object from the input change.
-   */
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
+    setFormValues({ ...formValues, [name]: value });
   };
 
-  /**
-   * Handles the form submission event.
-   *
-   * Prevents the default form submission behavior, checks if the keyword input is valid (minimum 3 characters),
-   * and displays an error alert if the input is invalid.
-   *
-   * @param e - The event object from the form submission.
-   */
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const { keyword } = formValues;
-
     if (keyword === '' || keyword.length < 3) {
       showAlert({ type: 'error', text: 'Please enter minimum 3 characters for search.' });
     }

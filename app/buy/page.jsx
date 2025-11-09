@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import metadata from 'next/metadata';
 // components
 import Master from '@components/Layout/Master';
 import Section from '@components/Section/Section';
@@ -79,7 +78,6 @@ const title = 'Buy tickets';
 const canonical = 'https://modern-ticketing.com/buy';
 const description = 'Modern ticketing is a modern ticketing solution';
 
-// eslint-disable-next-line no-unused-vars
 export const metadata = {
   title,
   description,

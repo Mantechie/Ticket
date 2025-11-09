@@ -1,4 +1,3 @@
-// import Metadata from 'next/metadata';
 // components
 import Master from '@components/Layout/Master';
 import Section from '@components/Section/Section';

@@ -1,6 +1,4 @@
 import Link from 'next/link';
-// eslint-disable-next-line no-unused-vars
-import { Metadata } from 'next';
 
 // components
 import Master from '@components/Layout/Master';
