@@ -9,151 +9,149 @@ import CardGroup from '@components/Card/CardGroup';
 
 const Page: React.FC = () => (
   <Master>
+    {/* Venue Cover */}
     <div className='blur-cover'>
       <div
         style={{
-          backgroundImage: `url("https://images.unsplash.com/photo-1507901747481-84a4f64fda6d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
+          backgroundImage: `url("https://images.unsplash.com/photo-1581320543450-469b6f3b8aa7?q=80&w=1000&auto=format&fit=crop")`,
         }}
         className='event-cover cover-image flex flex-v-center flex-h-center'
       />
       <div className='cover-info'>
         <div
           style={{
-            backgroundImage: `url("https://images.unsplash.com/photo-1507901747481-84a4f64fda6d?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
+            backgroundImage: `url("https://images.unsplash.com/photo-1581320543450-469b6f3b8aa7?q=80&w=1000&auto=format&fit=crop")`,
           }}
           className='cover-image image'
         />
-        <Heading type={1} color='white' text='Venue name goes here' />
-        <Heading type={6} color='white' text='Shepherds Bush, London' />
+        <Heading type={1} color='white' text='NSCI Dome, Worli' />
+        <Heading type={6} color='white' text='Mumbai, Maharashtra' />
       </div>
     </div>
+
+    {/* Venue Details */}
     <Section className='white-background'>
       <div className='container'>
         <div className='venue-details'>
           <Heading type={4} color='gray' text='Venue details' />
           <div className='paragraph-container gray'>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-              dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit anim id est laborum.
+              NSCI Dome, located in Worli, Mumbai, is one of India’s premier indoor sports and
+              entertainment arenas. The venue hosts concerts, sports events, corporate gatherings,
+              and award shows with a seating capacity of over 8,000 spectators.
             </p>
             <p>
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
-              laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi
-              architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas
-              sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione
-              voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit
-              amet.
+              Known for its world-class facilities and central location, NSCI Dome has hosted some
+              of the biggest names in music and entertainment — including Arijit Singh, AR Rahman,
+              and international artists. It’s a favorite choice for grand concerts, comedy shows,
+              and cultural festivals in Mumbai.
             </p>
           </div>
         </div>
       </div>
     </Section>
 
+    {/* Location and Directions */}
     <Section className='white-background'>
       <div className='container'>
         <Heading type={6} color='gray' text='Address' />
         <div className='paragraph-container'>
-          <p className='gray'>Lorem ipsum dolor sit amet consecteteur adispicing elit.</p>
+          <p className='gray'>NSCI Dome, Lala Lajpatrai Marg, Worli, Mumbai, Maharashtra 400018</p>
         </div>
         <Heading type={6} color='gray' text='How to get there?' />
         <div className='paragraph-container'>
-          <p className='gray'>Lorem ipsum dolor sit amet consecteteur adispicing elit.</p>
           <p className='gray'>
-            <a target='_blank' href='/' className='blue'>
+            Easily accessible via local train (Lower Parel or Mahalaxmi stations) and the Western
+            Express Highway. Taxis and app-based cabs are available 24/7.
+          </p>
+          <p className='gray'>
+            <a
+              target='_blank'
+              href='https://www.google.com/maps?q=NSCI+Dome+Worli+Mumbai'
+              className='blue'
+            >
               Get directions
             </a>
             &nbsp; &bull; &nbsp;
-            <a target='_blank' href='/' className='blue'>
+            <a
+              target='_blank'
+              href='https://www.google.com/maps/place/NSCI+Dome+Worli+Mumbai'
+              className='blue'
+            >
               Show in map
             </a>
           </p>
         </div>
-        <Heading type={6} color='gray' text='Accesibility information' />
+        <Heading type={6} color='gray' text='Accessibility information' />
         <div className='paragraph-container'>
-          <p className='gray'>Lorem ipsum dolor sit amet consecteteur adispicing elit.</p>
+          <p className='gray'>
+            The venue is fully accessible with ramps, elevators, and wheelchair seating areas. Ample
+            parking and separate entry points for VIPs and guests are available.
+          </p>
         </div>
       </div>
     </Section>
 
-    <CardGroup url='list' title='Event in this venue' color='gray' background='gray'>
+    {/* Events at this Venue */}
+    <CardGroup url='list' title='Events at this venue' color='gray' background='gray'>
       <EventCard
         url='1'
-        from='20'
+        from='₹499'
         color='orange'
-        when='Tue, Sep 21, 2024 19:00'
-        name='Event name goes here'
-        venue='Royal Albert Hall'
-        image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Sat, Dec 14, 2025 19:00'
+        name='Arijit Singh Live Concert'
+        venue='NSCI Dome, Mumbai'
+        image='https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=400&auto=format&fit=crop'
       />
       <EventCard
-        url='1'
-        from='25'
+        url='2'
+        from='₹299'
         color='orange'
-        when='Wed, Aug 9, 2024 22:00'
-        name='Event name goes here'
-        venue='o2 Arena'
-        image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Fri, Dec 20, 2025 20:00'
+        name='The Great Indian Laughter Night'
+        venue='NSCI Dome, Mumbai'
+        image='https://images.unsplash.com/photo-1529400971008-f566de0e6dfc?q=80&w=400&auto=format&fit=crop'
       />
       <EventCard
-        url='1'
-        from='10'
+        url='3'
+        from='₹699'
         color='orange'
-        when='Sun, Mar 14, 2024 15:00'
-        name='Event name goes here'
-        venue='Wembley Stadium'
-        image='https://images.unsplash.com/photo-1561489396-888724a1543d?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Sun, Jan 18, 2026 18:00'
+        name='AR Rahman – India Tour'
+        venue='NSCI Dome, Mumbai'
+        image='https://images.unsplash.com/photo-1507878866276-a947ef722fee?q=80&w=400&auto=format&fit=crop'
       />
       <EventCard
-        url='1'
-        from='60'
+        url='4'
+        from='₹399'
         color='orange'
-        when='Mon, Jul 2, 2024 20:00'
-        name='Event name goes here'
-        venue='Eventim Apollo'
-        image='https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='20'
-        color='orange'
-        when='Tue, Sep 21, 2024 19:00'
-        name='Event name goes here'
-        venue='Royal Albert Hall'
-        image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='25'
-        color='orange'
-        when='Wed, Aug 9, 2024 22:00'
-        name='Event name goes here'
-        venue='o2 Arena'
-        image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Sat, Feb 8, 2026 17:30'
+        name='Bollywood Music Awards 2026'
+        venue='NSCI Dome, Mumbai'
+        image='https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?q=80&w=400&auto=format&fit=crop'
       />
     </CardGroup>
   </Master>
 );
 
-const title = 'Venue name goes here';
-const canonical = 'https://modern-ticketing.com/venue/1';
-const description = 'Modern ticketing is a modern ticketing solution';
+const title = 'NSCI Dome, Mumbai – Venue Details';
+const canonical = 'https://ticketzilla.in/venue/nsci-dome';
+const description =
+  'Explore NSCI Dome, Mumbai – India’s top indoor venue for concerts, shows, and live events. Get address, directions, and upcoming events hosted here.';
 
 export const metadata: Metadata = {
   title,
   description,
-  keywords: 'modern ticketing',
+  keywords:
+    'ticketzilla, nsci dome mumbai, concert venue india, live shows, event tickets, arijit singh concert',
   alternates: { canonical },
   openGraph: {
     title,
     description,
     url: canonical,
     type: 'website',
-    siteName: 'Modern Ticketing',
-    images: 'https://modern-ticketing.com/logo192.png',
+    siteName: 'TicketZilla',
+    images: 'https://ticketzilla.in/logo192.png',
   },
 };
 

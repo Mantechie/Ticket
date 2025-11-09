@@ -8,92 +8,96 @@ import EventCard from '@components/Card/EventCard';
 
 const Page: React.FC = () => (
   <Master>
+    {/* Header Section */}
     <Section className='white-background'>
       <div className='container'>
         <div className='padding-bottom center'>
           <Heading type={1} color='gray' text='Events' />
-          <p className='gray'>Discover, search and filter best events in your place.</p>
+          <p className='gray'>Discover, search and book the best events happening across India.</p>
         </div>
       </div>
     </Section>
 
+    {/* Event Listing */}
     <Section className='list-cards'>
       <div className='container center'>
         <EventCard
           url='1'
-          from='20'
+          from='₹499'
           color='blue'
-          when='Tue, Sep 21, 2024 19:00'
-          name='Event name goes here'
-          venue='Royal Albert Hall'
-          image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+          when='Sat, Dec 14, 2025 19:00'
+          name='Arijit Singh Live Concert'
+          venue='NSCI Dome, Mumbai'
+          image='https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=400&auto=format&fit=crop'
         />
         <EventCard
-          url='1'
-          from='25'
+          url='2'
+          from='₹299'
           color='blue'
-          when='Wed, Aug 9, 2024 22:00'
-          name='Event name goes here'
-          venue='o2 Arena'
-          image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+          when='Fri, Dec 20, 2025 20:00'
+          name='Sunburn EDM Festival'
+          venue='Vagator Beach, Goa'
+          image='https://images.unsplash.com/photo-1507878866276-a947ef722fee?q=80&w=400&auto=format&fit=crop'
         />
         <EventCard
-          url='1'
-          from='10'
+          url='3'
+          from='₹399'
           color='blue'
-          when='Sun, Mar 14, 2024 15:00'
-          name='Event name goes here'
-          venue='Wembley Stadium'
-          image='https://images.unsplash.com/photo-1561489396-888724a1543d?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+          when='Sun, Jan 12, 2026 18:30'
+          name='Zakir Khan Stand-Up Comedy'
+          venue='Siri Fort Auditorium, Delhi'
+          image='https://imgs.search.brave.com/ZQNx-D-2twXgOyTMSY-EkehJZYmo2acKMexsROF5g8Y/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL1Mv/cHYtdGFyZ2V0LWlt/YWdlcy80MWFjOTAx/ODczNWE1ZTgxYzUx/MWYzZDE0ZjZlYjM0/MmYwOTBlMWE1MDA2/ZGI2MDY4OWZjMDk1/ZGNjOTVkNDVhLmpw/Zw'
         />
         <EventCard
-          url='1'
-          from='60'
+          url='4'
+          from='₹699'
           color='blue'
-          when='Mon, Jul 2, 2024 20:00'
-          name='Event name goes here'
-          venue='Eventim Apollo'
-          image='https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+          when='Sat, Feb 8, 2026 19:00'
+          name='Coldplay: Music of the Spheres Tour'
+          venue='Kanteerava Stadium, Bengaluru'
+          image='https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?q=80&w=400&auto=format&fit=crop'
         />
         <EventCard
-          url='1'
-          from='20'
+          url='5'
+          from='₹250'
           color='blue'
-          when='Tue, Sep 21, 2024 19:00'
-          name='Event name goes here'
-          venue='Royal Albert Hall'
-          image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+          when='Sun, Jan 5, 2026 16:00'
+          name='India Food Festival'
+          venue='Jawaharlal Nehru Stadium, Delhi'
+          image='https://images.unsplash.com/photo-1532634896-26909d0d4b89?q=80&w=400&auto=format&fit=crop'
         />
         <EventCard
-          url='1'
-          from='25'
+          url='6'
+          from='₹349'
           color='blue'
-          when='Wed, Aug 9, 2024 22:00'
-          name='Event name goes here'
-          venue='o2 Arena'
-          image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+          when='Fri, Jan 24, 2026 18:00'
+          name='AR Rahman – India Tour'
+          venue='Hitex Exhibition Center, Hyderabad'
+          image='https://images.unsplash.com/photo-1505843513577-22bb7d21e455?q=80&w=400&auto=format&fit=crop'
         />
       </div>
     </Section>
   </Master>
 );
 
-const title = 'List';
-const canonical = 'https://modern-ticketing.com/list';
-const description = 'Modern ticketing is a modern ticketing solution';
+const title = 'Events in India';
+const canonical = 'https://ticketzilla.in/events';
+const description =
+  'Explore upcoming concerts, comedy shows, and festivals in India. Book tickets for events in Mumbai, Delhi, Bengaluru, Hyderabad, Goa, and more with TicketZilla.';
 
 export const metadata: Metadata = {
   title,
   description,
-  keywords: 'modern ticketing',
+  keywords:
+    'ticketzilla, events in india, concerts, live shows, arijit singh, zakir khan, sunburn, AR Rahman, coldplay tour, comedy india',
   alternates: { canonical },
   openGraph: {
     title,
     description,
     url: canonical,
     type: 'website',
-    siteName: 'Modern Ticketing',
-    images: 'https://modern-ticketing.com/logo192.png',
+    siteName: 'TicketZilla',
+    images: 'https://ticketzilla.in/logo192.png',
   },
 };
 

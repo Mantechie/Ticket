@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-
 import Link from 'next/link';
 
 // hooks
@@ -15,7 +14,6 @@ import Loader from '@components/Loader/Loader';
 // utils
 import Request, { type IRequest, type IResponse } from '@utils/Request';
 
-// interfaces
 interface IFormProps {
   email: string;
   password: string;
@@ -23,7 +21,6 @@ interface IFormProps {
 
 const Form: React.FC = () => {
   const { showAlert, hideAlert } = useAlert();
-
   const [loading, setLoading] = useState<boolean>(false);
   const [formValues, setFormValues] = useState<IFormProps>({
     email: '',
@@ -31,15 +28,10 @@ const Form: React.FC = () => {
   });
 
   /**
-   * Handles the change event for input fields in the form.
-   *
-   * This function is called when the value of an input field in the form changes. It updates the state of the form values with the new value.
-   *
-   * @param {React.ChangeEvent<HTMLInputElement>} e - The change event.
+   * Handles input field changes.
    */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
-
     setFormValues({
       ...formValues,
       [name]: value,
@@ -47,47 +39,68 @@ const Form: React.FC = () => {
   };
 
   /**
-   * Handles the form submission event.
-   *
-   * This function is called when the form is submitted. It prevents the default form submission behavior,
-   * hides any existing alert, sets the loading state to true, sends a POST request to the signin/password endpoint,
-   * and handles the response. If the response status is 200, it does nothing. If the status is not 200, it shows an error alert.
-   * Finally, it sets the loading state back to false.
-   *
-   * @param {React.FormEvent<HTMLFormElement>} e - The form submission event.
-   * @returns {Promise<any>} A promise that resolves when the request is complete.
+   * Opens Google OAuth login page in a new window.
    */
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<any> => {
+  const handleGoogleSignIn = (): void => {
+    const googleAuthURL =
+      'https://accounts.google.com/o/oauth2/v2/auth' +
+      '?client_id=YOUR_GOOGLE_CLIENT_ID' + // replace with your Google client ID
+      '&redirect_uri=http://localhost:3000/auth/google/callback' +
+      '&response_type=code' +
+      '&scope=openid%20email%20profile';
+
+    window.open(googleAuthURL, '_blank', 'width=500,height=600');
+  };
+
+  /**
+   * Handles form submission for standard sign-in.
+   */
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-
     hideAlert();
-
     setLoading(true);
 
-    const parameters: IRequest = {
-      url: 'v1/signin/password',
-      method: 'POST',
-      postData: {
-        email: formValues.email,
-        password: formValues.password,
-      },
-    };
+    try {
+      const parameters: IRequest = {
+        url: 'v1/signin/password',
+        method: 'POST',
+        postData: {
+          email: formValues.email,
+          password: formValues.password,
+        },
+      };
 
-    const req: IResponse = await Request.getResponse(parameters);
+      const req: IResponse = await Request.getResponse(parameters);
+      const { status, data } = req;
 
-    const { status, data } = req;
-
-    if (status === 200) {
-      // Handle successful response
-    } else {
-      showAlert({ type: 'error', text: data.title ?? '' });
+      if (status === 200) {
+        showAlert({ type: 'success', text: 'Logged in successfully!' });
+        // Optional: redirect after short delay
+        setTimeout(() => {
+          window.location.href = '/members/dashboard';
+        }, 1500);
+      } else {
+        showAlert({
+          type: 'error',
+          text: data?.message || 'Invalid credentials. Please try again.',
+        });
+      }
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : 'Unable to connect to the server. Please check your network.';
+      showAlert({
+        type: 'error',
+        text: errorMessage,
+      });
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   if (loading) {
-    return <Loader type='inline' color='gray' text='Hang on a second' />;
+    return <Loader type='inline' color='gray' text='Signing you in...' />;
   }
 
   return (
@@ -99,9 +112,10 @@ const Form: React.FC = () => {
       }}
     >
       <div className='form-elements'>
+        {/* Google Sign-In Button */}
         <div className='form-line'>
           <div className='one-line'>
-            <button type='button' className='google-button'>
+            <button type='button' className='google-button' onClick={handleGoogleSignIn}>
               <svg
                 version='1.1'
                 xmlns='http://www.w3.org/2000/svg'
@@ -126,17 +140,20 @@ const Form: React.FC = () => {
                     fill='#34A853'
                     d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'
                   />
-                  <path fill='none' d='M0 0h48v48H0z' />
                 </g>
               </svg>
               <span>Sign in with Google</span>
             </button>
           </div>
         </div>
+
+        {/* Divider */}
         <div className='or-line'>
           <hr />
           <span>OR</span>
         </div>
+
+        {/* Email */}
         <div className='form-line'>
           <div className='one-line'>
             <div className='label-line'>
@@ -153,6 +170,8 @@ const Form: React.FC = () => {
             />
           </div>
         </div>
+
+        {/* Password */}
         <div className='form-line'>
           <div className='label-line flex flex-v-center flex-space-between'>
             <label htmlFor='password'>Password</label>
@@ -170,6 +189,8 @@ const Form: React.FC = () => {
             onChange={handleChange}
           />
         </div>
+
+        {/* Submit Button */}
         <div className='form-buttons'>
           <Button type='submit' color='blue-filled' text='Sign in' />
         </div>

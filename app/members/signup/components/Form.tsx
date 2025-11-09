@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-
 import Link from 'next/link';
 
 // hooks
@@ -16,7 +15,6 @@ import Loader from '@components/Loader/Loader';
 // utils
 import Request, { type IRequest, type IResponse } from '@utils/Request';
 
-// interfaces
 interface IFormProps {
   tos: boolean;
   name: string;
@@ -37,80 +35,90 @@ const Form: React.FC = () => {
     tos: false,
   });
 
-  /**
-   * Handles the change event for input fields in the form.
-   *
-   * This function is called when the value of an input field in the form changes. It updates the state of the form values with the new value.
-   *
-   * @param {React.ChangeEvent<HTMLInputElement>} e - The change event.
-   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
-
-    setFormValues({
-      ...formValues,
-      [name]: value,
-    });
+    setFormValues({ ...formValues, [name]: value });
   };
 
-  /**
-   * Handles the change event for checkbox fields in the form.
-   *
-   * This function is called when the value of a checkbox field in the form changes. It updates the state of the form values with the new value.
-   *
-   * @param {React.ChangeEvent<HTMLInputElement>} e - The change event.
-   */
   const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, checked } = e.target;
-
-    setFormValues({
-      ...formValues,
-      [name]: checked,
-    });
+    setFormValues({ ...formValues, [name]: checked });
   };
 
   /**
-   * Handles the form submission event.
-   *
-   * This function is called when the form is submitted. It prevents the default form submission behavior,
-   * hides any existing alert, sets the loading state to true, sends a POST request to the signin/password endpoint,
-   * and handles the response. If the response status is 200, it redirects the user to the account activation page.
-   * If the status is not 200, it shows an error alert. Finally, it sets the loading state back to false.
-   *
-   * @param {React.FormEvent<HTMLFormElement>} e - The form submission event.
-   * @returns {Promise<any>} A promise that resolves when the request is complete.
+   * Google sign-up handler
+   * Opens Google's OAuth page in a new tab
    */
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<any> => {
-    e.preventDefault();
+  const handleGoogleSignUp = (): void => {
+    const googleAuthURL =
+      'https://accounts.google.com/o/oauth2/v2/auth' +
+      '?client_id=YOUR_GOOGLE_CLIENT_ID' + // replace with real client ID
+      '&redirect_uri=http://localhost:3000/auth/google/callback' +
+      '&response_type=code' +
+      '&scope=openid%20email%20profile';
 
+    window.open(googleAuthURL, '_blank', 'width=500,height=600');
+  };
+
+  /**
+   * Form submission handler for normal sign-up
+   */
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>): Promise<void> => {
+    e.preventDefault();
     hideAlert();
+
+    if (!formValues.tos) {
+      showAlert({
+        type: 'error',
+        text: 'Please agree to our Privacy Policy and Terms of Service.',
+      });
+      return;
+    }
 
     setLoading(true);
 
-    const parameters: IRequest = {
-      url: 'v1/signin/password',
-      method: 'POST',
-      postData: {
-        email: formValues.email,
-        password: formValues.password,
-      },
-    };
+    try {
+      const parameters: IRequest = {
+        url: 'v1/signup/password', // ✅ Correct endpoint for signup
+        method: 'POST',
+        postData: {
+          name: formValues.name,
+          lastname: formValues.lastname,
+          email: formValues.email,
+          password: formValues.password,
+        },
+      };
 
-    const req: IResponse = await Request.getResponse(parameters);
+      const req: IResponse = await Request.getResponse(parameters);
+      const { status, data } = req;
 
-    const { status, data } = req;
-
-    if (status === 200) {
-      window.location.href = '/members/activate/account';
-    } else {
-      showAlert({ type: 'error', text: data.title ?? '' });
+      if (status === 200) {
+        showAlert({ type: 'success', text: 'Account created successfully!' });
+        setTimeout(() => {
+          window.location.href = '/members/activate/account';
+        }, 1500);
+      } else {
+        showAlert({
+          type: 'error',
+          text: data?.message || 'Something went wrong. Please try again.',
+        });
+      }
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : 'Unable to connect to the server. Please check your network.';
+      showAlert({
+        type: 'error',
+        text: errorMessage,
+      });
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   if (loading) {
-    return <Loader type='inline' color='gray' text='Hang on a second' />;
+    return <Loader type='inline' color='gray' text='Creating your account...' />;
   }
 
   return (
@@ -122,9 +130,10 @@ const Form: React.FC = () => {
       }}
     >
       <div className='form-elements'>
+        {/* Google Sign-Up Button */}
         <div className='form-line'>
           <div className='one-line'>
-            <button type='button' className='google-button'>
+            <button type='button' className='google-button' onClick={handleGoogleSignUp}>
               <svg
                 version='1.1'
                 xmlns='http://www.w3.org/2000/svg'
@@ -149,65 +158,73 @@ const Form: React.FC = () => {
                     fill='#34A853'
                     d='M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z'
                   />
-                  <path fill='none' d='M0 0h48v48H0z' />
                 </g>
               </svg>
               <span>Sign up with Google</span>
             </button>
           </div>
         </div>
+
         <div className='or-line'>
           <hr />
           <span>OR</span>
         </div>
+
+        {/* Name */}
         <div className='form-line'>
           <div className='one-line'>
             <div className='label-line'>
-              <label htmlFor='name'>Name</label>
+              <label htmlFor='name'>First Name</label>
             </div>
             <Input
               type='text'
               name='name'
               value={formValues.name}
-              maxLength={64}
-              placeholder='Enter your name'
+              placeholder='Enter your first name'
               required
               onChange={handleChange}
+              maxLength={8}
             />
           </div>
         </div>
+
+        {/* Last Name */}
         <div className='form-line'>
           <div className='one-line'>
             <div className='label-line'>
-              <label htmlFor='lastname'>Last name</label>
+              <label htmlFor='lastname'>Last Name</label>
             </div>
             <Input
               type='text'
               name='lastname'
               value={formValues.lastname}
-              maxLength={64}
               placeholder='Enter your last name'
               required
               onChange={handleChange}
+              maxLength={8}
             />
           </div>
         </div>
+
+        {/* Email */}
         <div className='form-line'>
           <div className='one-line'>
             <div className='label-line'>
-              <label htmlFor='email'>E-mail address</label>
+              <label htmlFor='email'>Email Address</label>
             </div>
             <Input
               type='email'
               name='email'
               value={formValues.email}
-              maxLength={128}
-              placeholder='Enter your e-mail address'
+              placeholder='Enter your email'
               required
               onChange={handleChange}
+              maxLength={8}
             />
           </div>
         </div>
+
+        {/* Password */}
         <div className='form-line'>
           <div className='label-line'>
             <label htmlFor='password'>Password</label>
@@ -216,12 +233,14 @@ const Form: React.FC = () => {
             type='password'
             name='password'
             value={formValues.password}
-            maxLength={64}
             placeholder='Enter your password'
             required
             onChange={handleChange}
+            maxLength={8}
           />
         </div>
+
+        {/* Terms & Privacy */}
         <div className='form-line'>
           <div className='label-line'>
             <label htmlFor='tos'>Agreements</label>
@@ -229,14 +248,16 @@ const Form: React.FC = () => {
           <Switch name='tos' color='blue' onChange={handleCheckboxChange}>
             I agree to the{' '}
             <Link href='/legal/privacy-policy' className='blue'>
-              Privacy policy
+              Privacy Policy
             </Link>{' '}
             and{' '}
             <Link href='/legal/terms-of-service' className='blue'>
-              TOS
+              Terms of Service
             </Link>
           </Switch>
         </div>
+
+        {/* Submit */}
         <div className='form-buttons'>
           <Button type='submit' color='blue-filled' text='Sign up' />
         </div>

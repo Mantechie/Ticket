@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+import React, { useMemo } from 'react';
 import Link from 'next/link';
 
 // components
@@ -9,189 +9,193 @@ import EventCard from '@components/Card/EventCard';
 import CardGroup from '@components/Card/CardGroup';
 import TicketForm from './components/TicketForm';
 
-const Page = () => (
-  <Master>
-    <div className='blur-cover'>
-      <div
-        style={{
-          backgroundImage: `url("https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
-        }}
-        className='event-cover cover-image flex flex-v-center flex-h-center'
-      />
-      <div className='cover-info'>
+const Page = () => {
+  // Event Data (Localized for India)
+  const event = useMemo(
+    () => ({
+      id: 1,
+      name: 'Arijit Singh Live Concert',
+      date: 'Sat, Dec 14, 2025 19:00',
+      venue: 'NSCI Dome, Worli, Mumbai',
+      address: 'NSCI Dome, Lala Lajpatrai Marg, Worli, Mumbai, Maharashtra 400018',
+      latitude: 18.9915,
+      longitude: 72.8173,
+      image:
+        'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=1200&auto=format&fit=crop',
+      description: `
+        Experience an unforgettable night with Arijit Singh performing his greatest hits live at the iconic NSCI Dome in Mumbai!
+        Join thousands of fans as the soulful singer brings magic to the stage with his mesmerizing voice, breathtaking visuals, and a full live band experience.
+      `,
+      tickets: [
+        { id: 1, name: 'General Admission', price: '₹2500' },
+        { id: 2, name: 'VIP Pass', price: '₹5500' },
+        {
+          id: 3,
+          name: 'Student Ticket',
+          price: '₹1500',
+          information: 'Valid student ID required.',
+        },
+      ],
+    }),
+    []
+  );
+
+  const mapsLink = `https://www.google.com/maps?q=${encodeURIComponent(event.address)}`;
+  const directionLink = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(
+    event.latitude + ',' + event.longitude
+  )}`;
+
+  return (
+    <Master>
+      {/* Cover Image Section */}
+      <div className='relative blur-cover'>
         <div
-          style={{
-            backgroundImage: `url("https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")`,
-          }}
-          className='cover-image image'
+          style={{ backgroundImage: `url(${event.image})` }}
+          className='event-cover cover-image flex flex-v-center flex-h-center'
         />
-        <Heading type={1} color='white' text='Event name goes here' />
-        <Heading type={5} color='white' text='Tue, Sep 21, 2024 19:00' />
-        <Heading type={6} color='white' text='Royal Albert Hall' />
+        <div className='cover-info bg-gradient-to-t from-black/80 to-transparent p-8'>
+          <Heading type={1} color='white' text={event.name} />
+          <Heading type={5} color='white' text={event.date} />
+          <Heading type={6} color='white' text={event.venue} />
+        </div>
       </div>
-    </div>
-    <Section className='white-background'>
-      <div className='container'>
-        <div className='event-details'>
+
+      {/* Event Details */}
+      <Section className='white-background py-10'>
+        <div className='container grid md:grid-cols-2 gap-8'>
+          {/* Left Column: Description */}
           <div>
-            <Heading type={4} color='gray' text='Event details' />
-            <div className='paragraph-container gray'>
+            <Heading type={4} color='gray' text='Event Details' />
+            <div className='paragraph-container gray mt-4'>
+              <p>{event.description}</p>
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum.
-              </p>
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-                doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore
-                veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
-                voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-                magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est,
-                qui dolorem ipsum quia dolor sit amet.
+                Gates open 60 minutes before showtime. Food, beverages, and merchandise are
+                available inside the venue. Please arrive early to ensure smooth entry.
               </p>
             </div>
           </div>
-          <div>
-            <div className='ticket-box'>
-              <div className='ticket-box-header'>
-                <Heading type={4} color='gray' text='Tickets' />
-              </div>
-              <TicketForm
-                data={[
-                  {
-                    id: 1,
-                    name: 'Family',
-                    price: '₹100',
-                    ordering: 1,
-                    soldout: true,
-                  },
-                  {
-                    id: 2,
-                    name: 'Adult',
-                    price: '₹200',
-                    ordering: 2,
-                  },
-                  {
-                    id: 3,
-                    name: 'Child',
-                    price: '₹300',
-                    ordering: 3,
-                    information: 'Information about child tickets',
-                  },
-                ]}
-              />
+
+          {/* Right Column: Ticket Section */}
+          <div className='ticket-box'>
+            <div className='ticket-box-header mb-4'>
+              <Heading type={4} color='gray' text='Available Tickets' />
             </div>
+            <TicketForm data={event.tickets} />
           </div>
         </div>
-      </div>
-    </Section>
+      </Section>
 
-    <Section className='white-background'>
-      <div className='container'>
-        <Heading type={4} color='gray' text='Royal Albert Hall' />
+      {/* Venue Section */}
+      <Section className='white-background py-10'>
+        <div className='container'>
+          <Heading type={4} color='gray' text={event.venue} />
+          <Heading type={6} color='gray' text='Address' />
+          <div className='paragraph-container mt-2'>
+            <p className='gray'>{event.address}</p>
+          </div>
 
-        <Heading type={6} color='gray' text='Address' />
-        <div className='paragraph-container'>
-          <p className='gray'>Lorem ipsum dolor sit amet consecteteur adispicing elit.</p>
+          <Heading type={6} color='gray' text='How to Get There?' className='mt-4' />
+          <div className='paragraph-container mt-2'>
+            <p className='gray'>
+              The venue is well connected via Mumbai’s local train network — nearest stations are
+              Mahalaxmi and Lower Parel. App-based cabs and ample parking are also available nearby.
+            </p>
+            <p className='gray mt-2'>
+              <Link href='/venue/1' className='text-blue-600 hover:underline'>
+                Venue details
+              </Link>
+              &nbsp; &bull; &nbsp;
+              <a
+                href={directionLink}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-blue-600 hover:underline'
+              >
+                Show Directions
+              </a>
+              &nbsp; &bull; &nbsp;
+              <a
+                href={mapsLink}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='text-blue-600 hover:underline'
+              >
+                Open in Google Maps
+              </a>
+            </p>
+          </div>
+
+          <Heading type={6} color='gray' text='Accessibility Information' className='mt-4' />
+          <div className='paragraph-container'>
+            <p className='gray'>
+              NSCI Dome provides wheelchair access, elevator facilities, and priority entry for
+              specially-abled guests. Staff assistance is available at all main entrances.
+            </p>
+          </div>
         </div>
-        <Heading type={6} color='gray' text='How to get there?' />
-        <div className='paragraph-container'>
-          <p className='gray'>Lorem ipsum dolor sit amet consecteteur adispicing elit.</p>
-          <p className='gray'>
-            <Link href='/venue/1' className='blue'>
-              Venue details
-            </Link>
-            &nbsp; &bull; &nbsp;
-            <a target='_blank' href='/' className='blue'>
-              Get directions
-            </a>
-            &nbsp; &bull; &nbsp;
-            <a target='_blank' href='/' className='blue'>
-              Show in map
-            </a>
-          </p>
-        </div>
-      </div>
-    </Section>
+      </Section>
 
-    <CardGroup url='list' title='Other events' color='orange' background='gray'>
-      <EventCard
-        url='1'
-        from='20'
-        color='orange'
-        when='Tue, Sep 21, 2024 19:00'
-        name='Event name goes here'
-        venue='Royal Albert Hall'
-        image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='25'
-        color='orange'
-        when='Wed, Aug 9, 2024 22:00'
-        name='Event name goes here'
-        venue='o2 Arena'
-        image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='10'
-        color='orange'
-        when='Sun, Mar 14, 2024 15:00'
-        name='Event name goes here'
-        venue='Wembley Stadium'
-        image='https://images.unsplash.com/photo-1561489396-888724a1543d?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='60'
-        color='orange'
-        when='Mon, Jul 2, 2024 20:00'
-        name='Event name goes here'
-        venue='Eventim Apollo'
-        image='https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='20'
-        color='orange'
-        when='Tue, Sep 21, 2024 19:00'
-        name='Event name goes here'
-        venue='Royal Albert Hall'
-        image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='25'
-        color='orange'
-        when='Wed, Aug 9, 2024 22:00'
-        name='Event name goes here'
-        venue='o2 Arena'
-        image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-    </CardGroup>
-  </Master>
-);
+      {/* Related Events */}
+      <CardGroup url='list' title='Other Popular Events in India' color='orange' background='gray'>
+        <EventCard
+          url='2'
+          from='₹1999'
+          color='orange'
+          when='Sun, Jan 12, 2026 18:00'
+          name='AR Rahman India Tour'
+          venue='Bangalore Palace Grounds, Bengaluru'
+          image='https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?q=80&w=400&auto=format&fit=crop'
+        />
+        <EventCard
+          url='3'
+          from='₹999'
+          color='orange'
+          when='Fri, Feb 14, 2026 19:00'
+          name='Famous Sunburn Goa – Music Festival'
+          venue='Vagator Beach of Goa, Goa'
+          image='https://images.unsplash.com/photo-1507878866276-a947ef722fee?q=80&w=400&auto=format&fit=crop'
+        />
+        <EventCard
+          url='4'
+          from='₹499'
+          color='orange'
+          when='Sat, Mar 8, 2026 17:00'
+          name='Zakir Khan Stand-Up Night'
+          venue='Siri Fort Auditorium, New Delhi'
+          image='https://imgs.search.brave.com/ZQNx-D-2twXgOyTMSY-EkehJZYmo2acKMexsROF5g8Y/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL1Mv/cHYtdGFyZ2V0LWlt/YWdlcy80MWFjOTAx/ODczNWE1ZTgxYzUx/MWYzZDE0ZjZlYjM0/MmYwOTBlMWE1MDA2/ZGI2MDY4OWZjMDk1/ZGNjOTVkNDVhLmpw/Zw'
+        />
+        <EventCard
+          url='5'
+          from='₹599'
+          color='orange'
+          when='Sun, Apr 20, 2026 19:30'
+          name='Bollywood Music Awards'
+          venue='Hitex Exhibition Center, Hyderabad'
+          image='https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=400&auto=format&fit=crop'
+        />
+      </CardGroup>
+    </Master>
+  );
+};
 
-const title = 'Event name goes here';
-const canonical = 'https://modern-ticketing.com/event/1';
-const description = 'Modern ticketing is a modern ticketing solution';
+const title = 'Arijit Singh Live Concert | TicketZilla India';
+const canonical = 'https://ticketzilla.in/event/arijit-singh-mumbai';
+const description =
+  'Book tickets for Arijit Singh Live Concert at NSCI Dome, Mumbai via TicketZilla. Explore event details, ticket prices, and directions on Google Maps.';
 
 export const metadata = {
   title,
   description,
-  keywords: 'modern ticketing',
+  keywords:
+    'ticketzilla india, arijit singh concert, live music, mumbai events, nsci dome, bollywood concerts, india tickets',
   alternates: { canonical },
   openGraph: {
     title,
     description,
     url: canonical,
     type: 'website',
-    siteName: 'Modern Ticketing',
-    images: 'https://modern-ticketing.com/logo192.png',
+    siteName: 'TicketZilla',
+    images: 'https://ticketzilla.in/logo192.png',
   },
 };
 

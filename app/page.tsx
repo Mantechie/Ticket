@@ -14,7 +14,9 @@ const Page: React.FC = () => (
       <div className='container'>
         <div className='center'>
           <Heading type={1} color='gray' text='Discover' />
-          <p className='gray'>Discover, search and filter best events in India.</p>
+          <p className='gray'>
+            Discover, search, and filter the best events happening across India.
+          </p>
         </div>
       </div>
 
@@ -30,231 +32,136 @@ const Page: React.FC = () => (
       </div>
     </Section>
 
+    {/* Latest Events */}
     <CardGroup url='list' title='Latest events' color='blue' background='gray'>
       <EventCard
         url='1'
-        from='20'
+        from='₹499'
         color='blue'
-        when='Tue, Sep 21, 2024 19:00'
-        name='Event name goes here'
-        venue='Royal Albert Hall'
-        image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Sat, Dec 14, 2025 19:00'
+        name='Arijit Singh Live Concert'
+        venue='NSCI Dome, Mumbai'
+        image='https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=400&auto=format&fit=crop'
       />
       <EventCard
-        url='1'
-        from='25'
+        url='2'
+        from='₹299'
         color='blue'
-        when='Wed, Aug 9, 2024 22:00'
-        name='Event name goes here'
-        venue='o2 Arena'
-        image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Fri, Nov 28, 2025 20:00'
+        name='Sunburn EDM Festival'
+        venue='Vagator Beach, Goa'
+        image='https://images.unsplash.com/photo-1507878866276-a947ef722fee?q=80&w=400&auto=format&fit=crop'
       />
       <EventCard
-        url='1'
-        from='10'
+        url='3'
+        from='₹399'
         color='blue'
-        when='Sun, Mar 14, 2024 15:00'
-        name='Event name goes here'
-        venue='Wembley Stadium'
-        image='https://images.unsplash.com/photo-1561489396-888724a1543d?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Sun, Jan 12, 2026 18:30'
+        name='Stand-Up Night with Zakir Khan'
+        venue='Siri Fort Auditorium, Delhi'
+        image='https://imgs.search.brave.com/ZQNx-D-2twXgOyTMSY-EkehJZYmo2acKMexsROF5g8Y/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tLm1l/ZGlhLWFtYXpvbi5j/b20vaW1hZ2VzL1Mv/cHYtdGFyZ2V0LWlt/YWdlcy80MWFjOTAx/ODczNWE1ZTgxYzUx/MWYzZDE0ZjZlYjM0/MmYwOTBlMWE1MDA2/ZGI2MDY4OWZjMDk1/ZGNjOTVkNDVhLmpw/Zw'
       />
       <EventCard
-        url='1'
-        from='60'
+        url='4'
+        from='₹799'
         color='blue'
-        when='Mon, Jul 2, 2024 20:00'
-        name='Event name goes here'
-        venue='Eventim Apollo'
-        image='https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='20'
-        color='blue'
-        when='Tue, Sep 21, 2024 19:00'
-        name='Event name goes here'
-        venue='Royal Albert Hall'
-        image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='25'
-        color='blue'
-        when='Wed, Aug 9, 2024 22:00'
-        name='Event name goes here'
-        venue='o2 Arena'
-        image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Sat, Feb 8, 2026 19:00'
+        name='Coldplay: Music World Tour'
+        venue='Auditorium, Bengaluru'
+        image='https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2?q=80&w=400&auto=format&fit=crop'
       />
     </CardGroup>
 
+    {/* More Events */}
     <CardGroup url='list' title='More events' color='red' background='white'>
       <EventCard
-        url='1'
-        from='20'
+        url='5'
+        from='₹250'
         color='red'
-        when='Tue, Sep 21, 2024 19:00'
-        name='Event name goes here'
-        venue='Royal Albert Hall'
-        image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Sun, Jan 5, 2026 16:00'
+        name='India Food Festival'
+        venue='Jawaharlal Nehru Stadium, Delhi'
+        image='https://images.unsplash.com/photo-1532634896-26909d0d4b89?q=80&w=400&auto=format&fit=crop'
       />
       <EventCard
-        url='1'
-        from='25'
+        url='6'
+        from='₹150'
         color='red'
-        when='Wed, Aug 9, 2024 22:00'
-        name='Event name goes here'
-        venue='o2 Arena'
-        image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Fri, Dec 20, 2025 18:00'
+        name='Art and Culture Expo'
+        venue='Phoenix Marketcity, Chennai'
+        image='https://images.unsplash.com/photo-1504274066651-8d31a536b11a?q=80&w=400&auto=format&fit=crop'
       />
       <EventCard
-        url='1'
-        from='10'
+        url='7'
+        from='₹499'
         color='red'
-        when='Sun, Mar 14, 2024 15:00'
-        name='Event name goes here'
-        venue='Wembley Stadium'
-        image='https://images.unsplash.com/photo-1561489396-888724a1543d?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='60'
-        color='red'
-        when='Mon, Jul 2, 2024 20:00'
-        name='Event name goes here'
-        venue='Eventim Apollo'
-        image='https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='20'
-        color='red'
-        when='Tue, Sep 21, 2024 19:00'
-        name='Event name goes here'
-        venue='Royal Albert Hall'
-        image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='25'
-        color='red'
-        when='Wed, Aug 9, 2024 22:00'
-        name='Event name goes here'
-        venue='o2 Arena'
-        image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Sat, Feb 22, 2026 19:30'
+        name='Bollywood Night Bash'
+        venue='Hitex Exhibition Center, Hyderabad'
+        image='https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=400&auto=format&fit=crop'
       />
     </CardGroup>
 
+    {/* Editors Choice */}
     <CardGroup url='list' title='Editors choice' color='orange' background='gray'>
       <EventCard
-        url='1'
-        from='20'
+        url='8'
+        from='₹999'
         color='orange'
-        when='Tue, Sep 21, 2024 19:00'
-        name='Event name goes here'
-        venue='Royal Albert Hall'
-        image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Fri, Dec 26, 2025 19:00'
+        name='AR Rahman Live – India Tour'
+        venue='Mahalaxmi Racecourse, Mumbai'
+        image='https://images.unsplash.com/photo-1518972559570-7cc1309f3229?q=80&w=400&auto=format&fit=crop'
       />
       <EventCard
-        url='1'
-        from='25'
+        url='9'
+        from='₹299'
         color='orange'
-        when='Wed, Aug 9, 2024 22:00'
-        name='Event name goes here'
-        venue='o2 Arena'
-        image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Sat, Jan 10, 2026 17:00'
+        name='Comic Con India 2026'
+        venue='KTPO Trade Center, Bengaluru'
+        image='https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=400&auto=format&fit=crop'
       />
       <EventCard
-        url='1'
-        from='10'
+        url='10'
+        from='₹199'
         color='orange'
-        when='Sun, Mar 14, 2024 15:00'
-        name='Event name goes here'
-        venue='Wembley Stadium'
-        image='https://images.unsplash.com/photo-1561489396-888724a1543d?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='60'
-        color='orange'
-        when='Mon, Jul 2, 2024 20:00'
-        name='Event name goes here'
-        venue='Eventim Apollo'
-        image='https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='20'
-        color='orange'
-        when='Tue, Sep 21, 2024 19:00'
-        name='Event name goes here'
-        venue='Royal Albert Hall'
-        image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='25'
-        color='orange'
-        when='Wed, Aug 9, 2024 22:00'
-        name='Event name goes here'
-        venue='o2 Arena'
-        image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Sun, Jan 18, 2026 10:00'
+        name='India Art Fair 2026'
+        venue='NSIC Exhibition Grounds, Delhi'
+        image='https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=400&auto=format&fit=crop'
       />
     </CardGroup>
 
+    {/* For Kids */}
     <CardGroup url='list' title='For kids' color='purple' background='white'>
       <EventCard
-        url='1'
-        from='20'
+        url='11'
+        from='₹199'
         color='purple'
-        when='Tue, Sep 21, 2024 19:00'
-        name='Event name goes here'
-        venue='Royal Albert Hall'
-        image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Sat, Dec 28, 2025 10:00'
+        name='Disney on Ice – Magical Adventure for kids'
+        venue='BKC Grounds, Mumbai'
+        image='https://imgs.search.brave.com/JoG2gHiNPAAU7KK9RknzEV4BFb1tAFfD_lj7Ix6nyWo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/bW9tcmV3cml0dGVu/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyMi8wMS9EMjdj/XzIwMTgwOTIzXzAz/MzQ0X0VkaXQtNzIw/eDU0MC5qcGcud2Vi/cA'
       />
       <EventCard
-        url='1'
-        from='25'
+        url='12'
+        from='₹149'
         color='purple'
-        when='Wed, Aug 9, 2024 22:00'
-        name='Event name goes here'
-        venue='o2 Arena'
-        image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Sun, Jan 4, 2026 11:00'
+        name='Kids Science Festival'
+        venue='Birla Science Centre, Hyderabad'
+        image='https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?q=80&w=400&auto=format&fit=crop'
       />
       <EventCard
-        url='1'
-        from='10'
+        url='13'
+        from='₹299'
         color='purple'
-        when='Sun, Mar 14, 2024 15:00'
-        name='Event name goes here'
-        venue='Wembley Stadium'
-        image='https://images.unsplash.com/photo-1561489396-888724a1543d?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='60'
-        color='purple'
-        when='Mon, Jul 2, 2024 20:00'
-        name='Event name goes here'
-        venue='Eventim Apollo'
-        image='https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='20'
-        color='purple'
-        when='Tue, Sep 21, 2024 19:00'
-        name='Event name goes here'
-        venue='Royal Albert Hall'
-        image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-      />
-      <EventCard
-        url='1'
-        from='25'
-        color='purple'
-        when='Wed, Aug 9, 2024 22:00'
-        name='Event name goes here'
-        venue='o2 Arena'
-        image='https://images.unsplash.com/photo-1472691681358-fdf00a4bfcfe?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+        when='Sat, Jan 25, 2026 15:00'
+        name='Junior Chef Challenge'
+        venue='World Trade Center, Pune, Maharashtra'
+        image='https://imgs.search.brave.com/9Si0MSjyUSA6tIs45Ys-MPEDg07dzLfWNDtieXtcgaQ/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9jZG4u/c2hvcGlmeS5jb20v/cy9maWxlcy8xLzA0/NjkvOTcyNC8yMDIz/L2ZpbGVzL2hvbWUt/cGFnZS1naXJsLnBu/Zz92PTE3NDU3OTUx/MzI'
       />
     </CardGroup>
   </Master>

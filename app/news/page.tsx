@@ -21,91 +21,91 @@ const Page: React.FC = () => (
         <NewsCard
           url='1'
           color='red'
-          when='Tue, Sep 21, 2024 19:00'
+          when='Tue, Sep 21, 2026 19:00'
           name='News title goes here'
           image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         />
         <NewsCard
           url='1'
           color='red'
-          when='Tue, Sep 21, 2024 19:00'
+          when='Tue, Sep 21, 2026 19:00'
           name='News title goes here'
           image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         />
         <NewsCard
           url='1'
           color='red'
-          when='Tue, Sep 21, 2024 19:00'
+          when='Tue, Sep 21, 2026 19:00'
           name='News title goes here'
           image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         />
         <NewsCard
           url='1'
           color='red'
-          when='Tue, Sep 21, 2024 19:00'
+          when='Tue, Sep 21, 2026 19:00'
           name='News title goes here'
           image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         />
         <NewsCard
           url='1'
           color='red'
-          when='Tue, Sep 21, 2024 19:00'
+          when='Tue, Sep 21, 2026 19:00'
           name='News title goes here'
           image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         />
         <NewsCard
           url='1'
           color='red'
-          when='Tue, Sep 21, 2024 19:00'
+          when='Tue, Sep 21, 2026 19:00'
           name='News title goes here'
           image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         />
         <NewsCard
           url='1'
           color='red'
-          when='Tue, Sep 21, 2024 19:00'
+          when='Tue, Sep 21, 2026 19:00'
           name='News title goes here'
           image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         />
         <NewsCard
           url='1'
           color='red'
-          when='Tue, Sep 21, 2024 19:00'
+          when='Tue, Sep 21, 2026 19:00'
           name='News title goes here'
           image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         />
         <NewsCard
           url='1'
           color='red'
-          when='Tue, Sep 21, 2024 19:00'
+          when='Tue, Sep 21, 2026 19:00'
           name='News title goes here'
           image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         />
         <NewsCard
           url='1'
           color='red'
-          when='Tue, Sep 21, 2024 19:00'
+          when='Tue, Sep 21, 2026 19:00'
           name='News title goes here'
           image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         />
         <NewsCard
           url='1'
           color='red'
-          when='Tue, Sep 21, 2024 19:00'
+          when='Tue, Sep 21, 2026 19:00'
           name='News title goes here'
           image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         />
         <NewsCard
           url='1'
           color='red'
-          when='Tue, Sep 21, 2024 19:00'
+          when='Tue, Sep 21, 2026 19:00'
           name='News title goes here'
           image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         />
         <NewsCard
           url='1'
           color='red'
-          when='Tue, Sep 21, 2024 19:00'
+          when='Tue, Sep 21, 2026 19:00'
           name='News title goes here'
           image='https://images.unsplash.com/photo-1531058020387-3be344556be6?q=80&w=400&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
         />

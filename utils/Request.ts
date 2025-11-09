@@ -6,6 +6,7 @@ import axios, { type AxiosResponse, type AxiosError } from 'axios';
 // interfaces
 export interface IResponse {
   data: {
+    message: string;
     title?: string;
     results?: any;
   };
@@ -102,6 +103,7 @@ const getResponse = async (parameters: IRequest): Promise<IResponse> => {
     const d: IResponse = {
       data: {
         title: err.message,
+        message: 'Hey! Something went wrong while connecting to the server.',
       },
       status: 0,
     };
