@@ -38,7 +38,7 @@ const EventCard: React.FC<IProps> = ({ url, from, when, name, venue, image, colo
         </p>
         <p>
           <span className='material-symbols-outlined'>local_activity</span> from{' '}
-          <strong>£{from}</strong>
+          <strong>{from}</strong>
         </p>
       </div>
     </Link>
